@@ -1,0 +1,87 @@
+*, *::after, *::before {
+
+    box-sizing: border-box;  /* The following line of code supports sizing and demands the browser to account for any width and height values specified */
+
+}
+
+body {
+
+    margin: 0;  
+    overflow: hidden;  /* Setting the overflow as hidden will help make sure scroll-bars do not appear when passing through the pipes of the game */
+
+}
+
+.mainTitle {
+
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+    margin: 0;
+    flex-direction: column;
+    text-shadow: 2px 2px 1px black, 2px 2px 1px black;
+
+    /* The following code ensures the main title of the game is centered on the screen */
+
+}
+
+.smallTitle {
+
+    margin-top: .5rem;
+
+}
+
+.hide {
+
+    display: none;  /* The following will help make sure the small title attribute is hidden at the start of the game */
+
+}
+
+.pigeon {
+
+    --pigeon-top: -1000;
+    --pigeon-size: 60px;  /* Setting the variable for the size of the pigeon - this is convenient when changing the size quickly throughout the code */
+
+    position: absolute;  /* Setting the appereance of the piegon on screen */
+    width: var(--pigeon-size);
+    height: var(--pigeon-size);
+    left: var(--pigeon-size);
+    top: calc(var(--pigeon-top) * 1px);
+    border-radius: 50%;
+
+}
+
+.pipe {
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: calc(var(--pipe-width) * 1px);
+    left: calc(var(--pipe-left) * 1px);
+
+}
+
+.pipe > .segment {  /* Setting the colour and width of each pipe throughout the game */
+
+    position: absolute;
+    width: 100%;
+    background-color: hsl(100, 75%, 50%);
+
+}
+
+.pipe > .top {  /* Setting the top of the pipe */
+
+    top: 0;
+    bottom: calc(var(--hole-top) * 1px);
+
+}
+
+.pipe > .bottom {  /* Setting the bottom of the pipe */
+    
+    bottom: 0;
+    top: calc(100vh - (var(--hole-top) * 1px) + calc(var(--hole-height) * 1px));
+
+}
+
